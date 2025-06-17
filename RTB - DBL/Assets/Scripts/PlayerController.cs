@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     {
         // Movement vector using x & y variables //
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-         
+
         // moves the player
         rb.AddForce(force: movement * speed);
     }
@@ -26,9 +26,19 @@ public class PlayerController : MonoBehaviour
     {
         // convert input value into a vector2 for movement 
         Vector2 movementVector = movementValue.Get<Vector2>();
-        
+
         // X & Y components = movement 
         movementX = movementVector.x;
         movementY = movementVector.y;
+    }
+    
+    void OnTriggerEnter(Collider other) 
+    {
+     // Check if the object the player collided with has the "PickUp" tag.
+ if (other.gameObject.CompareTag("PickUp")) 
+        {
+           // Deactivate the collided object (making it disappear).
+            other.gameObject.SetActive(false);
+        }
     }
 }
