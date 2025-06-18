@@ -1,17 +1,24 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
     // variables //
     private Rigidbody rb;
+    private int count;
     private float movementX;
     private float movementY;
     [SerializeField] private float speed = 0;
+    public TextMeshProUGUI countText;
+    public GameObject winTextObject;
     void Start()
     {
         // gets the rigidbody to the player component //
         rb = GetComponent<Rigidbody>();
+        count = 0;
+        SetCountText();
+        winTextObject.SetActive(false);
     }
     private void FixedUpdate()
     {
@@ -31,14 +38,25 @@ public class PlayerController : MonoBehaviour
         movementX = movementVector.x;
         movementY = movementVector.y;
     }
-    
+
+    void SetCountText()
+    {
+        countText.text = "Count: " + count.ToString();
+        if (count >= 12)
+        {
+            winTextObject.SetActive(true);
+        }
+    }
+
     void OnTriggerEnter(Collider other) 
     {
-     // Check if the object the player collided with has the "PickUp" tag.
- if (other.gameObject.CompareTag("PickUp")) 
+        // Check if the object the player collided with has the "PickUp" tag.
+        if (other.gameObject.CompareTag("PickUp"))
         {
-           // Deactivate the collided object (making it disappear).
+            // Deactivate the collided object (making it disappear).
             other.gameObject.SetActive(false);
+            count = count + 1;
+            SetCountText();
         }
     }
 }
