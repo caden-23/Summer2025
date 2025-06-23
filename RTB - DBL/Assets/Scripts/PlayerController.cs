@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour 
 {
     // variables //
     private Rigidbody rb;
@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 0;
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
+    public GameObject loseTextObject;
     void Start()
     {
         // gets the rigidbody to the player component //
@@ -19,6 +20,8 @@ public class PlayerController : MonoBehaviour
         count = 0;
         SetCountText();
         winTextObject.SetActive(false);
+        loseTextObject.SetActive(false);
+
     }
     private void FixedUpdate()
     {
@@ -45,6 +48,7 @@ public class PlayerController : MonoBehaviour
         if (count >= 12)
         {
             winTextObject.SetActive(true);
+            FindFirstObjectByType<GameManager>().EndGame();
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
         }
     }
@@ -68,8 +72,8 @@ public class PlayerController : MonoBehaviour
             // Destroy the current object
             Destroy(gameObject);
             // Update the winText to display "You Lose!"
-            winTextObject.gameObject.SetActive(true);
-            winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
+            loseTextObject.SetActive(true);
+            FindFirstObjectByType<GameManager>().EndGame();
         }
     }
 }
