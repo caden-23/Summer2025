@@ -5,6 +5,9 @@ public class GameManager : MonoBehaviour
 
 {
     private bool gameHasEnded;
+    public int winCount;
+
+    public int roundThreshold = 2;
     void Start()
     {
         gameHasEnded = false;

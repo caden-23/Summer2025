@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
-public class PlayerController : MonoBehaviour 
+public class PlayerController : MonoBehaviour
 {
     // variables //
     private Rigidbody rb;
@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
     public GameObject loseTextObject;
+    public GameObject introTextObject;
+
     void Start()
     {
         // gets the rigidbody to the player component //
@@ -21,8 +23,15 @@ public class PlayerController : MonoBehaviour
         SetCountText();
         winTextObject.SetActive(false);
         loseTextObject.SetActive(false);
+        introTextObject.SetActive(true);
+        Invoke("IntroReset", 2f);
 
     }
+    public void IntroReset()
+    {
+        introTextObject.SetActive(false);
+    }
+
     private void FixedUpdate()
     {
         // Movement vector using x & y variables //
@@ -50,6 +59,7 @@ public class PlayerController : MonoBehaviour
             winTextObject.SetActive(true);
             FindFirstObjectByType<GameManager>().EndGame();
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+            
         }
     }
 

@@ -5,9 +5,21 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 25f0fe6caf05e4e3281eb774fe6494dd
+  - enabled: 1
+    path: Assets/Scenes/lifestyle.unity
+    guid: 18f760c5eb1dc493982e9bb1abcd7648
+  - enabled: 1
+    path: Assets/Scenes/EXLVL2/EXLVL2.unity
+    guid: fb1bb9562450746cba0c8aeca7750c03
+  - enabled: 1
+    path: Assets/Scenes/EXLVL3/EXLVL3.unity
+    guid: 0a85dcbd362fd4b56bf05b04ebca3cac
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
