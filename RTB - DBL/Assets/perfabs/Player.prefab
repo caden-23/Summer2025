@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2771155434745747143}
   - component: {fileID: 8929392966843079295}
   - component: {fileID: 7390244426713879006}
+  - component: {fileID: -3157438332993555129}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -181,3 +182,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
+  countText: {fileID: 0}
+  winTextObject: {fileID: 0}
+  loseTextObject: {fileID: 0}
+  introTextObject: {fileID: 0}
+--- !u!114 &-3157438332993555129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2216948456021410646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edef55bdf2b824d7fa40831fa1204ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frontLeft: {fileID: 0}
+  frontRight: {fileID: 0}
+  rearLeft: {fileID: 0}
+  rearRight: {fileID: 0}
+  frontLeftTransform: {fileID: 0}
+  frontRightTransform: {fileID: 0}
+  rearLeftTransform: {fileID: 0}
+  rearRightTransform: {fileID: 0}
+  maxMotorTorque: 1500
+  maxSteerAngle: 30
+  brakeTorque: 3000

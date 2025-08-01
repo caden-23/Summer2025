@@ -11,18 +11,23 @@ public class PlayerController : MonoBehaviour
     private float movementY;
     [SerializeField] private float speed = 0;
     public TextMeshProUGUI countText;
-    public GameObject winTextObject;
     public GameObject loseTextObject;
     public GameObject introTextObject;
+    public GameObject wintextObject;
+
 
     void Start()
     {
+
         // gets the rigidbody to the player component //
         rb = GetComponent<Rigidbody>();
+
+        // Freeze rotation on X and Z to prevent tipping or rolling
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         count = 0;
         SetCountText();
-        winTextObject.SetActive(false);
         loseTextObject.SetActive(false);
+        wintextObject.SetActive(false);
         introTextObject.SetActive(true);
         Invoke("IntroReset", 2f);
 
@@ -51,17 +56,19 @@ public class PlayerController : MonoBehaviour
         movementY = movementVector.y;
     }
 
+
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
         if (count >= 12)
         {
-            winTextObject.SetActive(true);
+            wintextObject.SetActive(true);
             FindFirstObjectByType<GameManager>().EndGame();
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
-            
+
         }
     }
+
 
     void OnTriggerEnter(Collider other)
     {
@@ -75,6 +82,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -87,4 +95,3 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
-

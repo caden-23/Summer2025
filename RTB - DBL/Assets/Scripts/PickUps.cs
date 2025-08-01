@@ -5,6 +5,7 @@ public class PickUps : MonoBehaviour
     private Vector3 initialPosition;
     private float despawnTime;
     public float respawnDelay = 5f; // Time before respawn
+    private PickupManager manager;
 
 
 
@@ -43,6 +44,16 @@ public class PickUps : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Collect();
+            Debug.Log("Player picked up item!");
+
+            manager.OnPickupCollected(gameObject);
+            Destroy(gameObject); // Or disable if pooling
         }
+        
+    }
+    public void SetManager(PickupManager m)
+    {
+        manager = m;
     }
 }
+
