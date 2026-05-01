@@ -69,7 +69,7 @@
             {
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.LastSize.Cube",
-                "value": "{\"m_Value\":{\"x\":-17.513364791870118,\"y\":-0.019245127215981485,\"z\":28.287338256835939}}"
+                "value": "{\"m_Value\":{\"x\":-0.02692699432373047,\"y\":5.315674781799316,\"z\":10.345900535583496}}"
             },
             {
                 "type": "UnityEngine.Quaternion, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -110,6 +110,11 @@
                 "type": "UnityEngine.ProBuilder.Shapes.Shape, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.Cube",
                 "value": "{}"
+            },
+            {
+                "type": "UnityEngine.ProBuilder.SelectMode, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "key": "s_SelectMode",
+                "value": "{\"m_Value\":4}"
             }
         ]
     }
